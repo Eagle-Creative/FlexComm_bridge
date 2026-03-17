@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>flexcomm_bridge</name>
+  <version>1.0.0</version>
+  <description>ROS 2 MQTT bridge with configurable topic mapping and namespacing</description>
+  <maintainer email="maintainers@example.com">FlexComm Bridge Maintainers</maintainer>
+  <license>MIT</license>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

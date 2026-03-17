@@ -1,0 +1,35 @@
+# FlexComm Bridge default configuration (public-safe)
+# This profile is intentionally minimal so the package can run out of the box.
+
+protocol:
+  type: mqtt
+  host: "localhost"
+  port: 1883
+  use_ssl: false
+  username: ""
+  password: ""
+  client_id: "flexcomm_bridge_demo"
+  keepalive: 60
+
+# MQTT topic root used for location namespacing (generic ROS 2 usage).
+# Example with defaults: "bridge/server/instructions" -> "bridge/demo_site/server/instructions"
+namespace_root: "bridge"
+
+# Optional location identifier for namespacing topics under namespace_root.
+location_id: "demo_site"
+
+auto_publish_robot_joint_states: false
+auto_publish_robot_endeffector_states: false
+
+connections:
+  # MQTT -> ROS 2
+  - ros_topic: /flexcomm/in
+    flexcomm_topic: bridge/server/instructions
+    message_type: std_msgs/msg/String
+    direction: mqtt_to_ros
+
+  # ROS 2 -> MQTT
+  - ros_topic: /flexcomm/out
+    flexcomm_topic: bridge/server/status
+    message_type: std_msgs/msg/String
+    direction: ros_to_mqtt
