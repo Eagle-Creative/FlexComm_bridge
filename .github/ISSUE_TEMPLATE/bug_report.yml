@@ -1,0 +1,45 @@
+name: Bug report
+description: Report a reproducible problem in flexcomm_bridge
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: ros_distro
+    attributes:
+      label: ROS 2 distro
+      placeholder: jazzy
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS
+      placeholder: Ubuntu 24.04
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command(s) run
+      placeholder: |
+        source install/setup.bash
+        ros2 run flexcomm_bridge bridge_node
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      render: shell

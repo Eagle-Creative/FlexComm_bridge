@@ -191,3 +191,11 @@ mosquitto_sub -h localhost -t "#" -v
 ## License
 
 MIT License. See `LICENSE`.
+
+## Repository Standards
+
+- Contributing guide: `CONTRIBUTING.md`
+- Security policy: `SECURITY.md`
+- Pull request template: `.github/PULL_REQUEST_TEMPLATE.md`
+- Issue templates: `.github/ISSUE_TEMPLATE/`
+- Continuous integration: `.github/workflows/ci.yml`

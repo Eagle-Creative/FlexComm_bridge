@@ -5,6 +5,7 @@
   <description>ROS 2 MQTT bridge with configurable topic mapping and namespacing</description>
   <maintainer email="maintainers@example.com">FlexComm Bridge Maintainers</maintainer>
   <license>MIT</license>
+  <buildtool_depend>ament_python</buildtool_depend>
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
