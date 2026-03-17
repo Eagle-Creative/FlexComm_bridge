@@ -1,6 +1,6 @@
 # FlexComm Bridge
 
-`flexcomm_bridge` is a ROS 2 package that bridges ROS topics and MQTT topics.
+`flexcomm_bridge` is a ROS 2 - Jazzy package that bridges ROS topics and MQTT topics.
 It supports bidirectional forwarding, JSON payload conversion, and optional location-based MQTT topic namespacing.
 
 ## Quickstart
