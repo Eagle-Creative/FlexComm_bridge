@@ -46,39 +46,6 @@ def message_to_json(msg):
     return result
 
 
-def _normalize_instruction_sequence_payload(data, msg_type):
-    """Normalize new InstructionSequence wrapper format into flat ROS fields."""
-    if not isinstance(data, dict):
-        return data
-
-    if getattr(msg_type, '__name__', '') != 'InstructionSequence':
-        return data
-
-    tasks = data.get('tasks')
-    if not isinstance(tasks, list) or not tasks or not isinstance(tasks[0], dict):
-        return data
-
-    normalized = dict(data)
-    first_task = tasks[0]
-
-    # InstructionSequence contains a single task payload, so unwrap tasks[0].
-    for field in (
-        'task_id',
-        'task_type',
-        'selected_object',
-        'reasoning',
-        'confidence',
-        'repetitions',
-        'loop_condition',
-        'instructions',
-    ):
-        if field in first_task:
-            normalized[field] = first_task[field]
-
-    normalized.pop('tasks', None)
-    return normalized
-
-
 def json_to_message(data, msg_type):
     """
     Convert a JSON dictionary to a ROS message.
@@ -90,7 +57,6 @@ def json_to_message(data, msg_type):
     Returns:
         ROS message object of msg_type
     """
-    data = _normalize_instruction_sequence_payload(data, msg_type)
     msg = msg_type()
 
     # Convenience handling for std_msgs/String-like messages:
